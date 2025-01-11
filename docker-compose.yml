@@ -1,0 +1,22 @@
+services:
+  web:
+    image: nginx:alpine
+    # image: webslab/impulsa:latest
+    ports:
+      - "8000:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      # prod:
+      # - ./dist/impulsa:/var/www/html/impulsa
+      # - ./dist:/var/www/html
+      # dev:
+      - ./public:/var/www/html/impulsa
+
+  php-fpm:
+    image: webslab/filefind:latest
+    network_mode: service:web
+    volumes:
+      # prod:
+      # - ./dist:/app/resources
+      # dev: ⬇️
+      - ./public:/app/resources
