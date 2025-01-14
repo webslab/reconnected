@@ -5,6 +5,7 @@ import { WlDatabase } from '@webslab/shared/components/database';
 import BaseLayout from '$layouts/Base.astro'
 
 import EditorTemplate from '$components/admin/posts/editor/Template.astro'
+import HeroPicker from '$components/admin/posts/HeroPicker.astro'
 ---
 
 <BaseLayout
@@ -42,6 +43,7 @@ import EditorTemplate from '$components/admin/posts/editor/Template.astro'
     </div>
 
     <EditorTemplate />
+    <HeroPicker class="d-none" id="foo" inputId="hero"/>
 
     <script>
       import { joditInit } from '$lib/editor'
@@ -62,11 +64,14 @@ import EditorTemplate from '$components/admin/posts/editor/Template.astro'
     import { joditInit } from '$lib/editor'
     import { authService } from '$lib/auth'
     import { getWlDatabase } from '$lib/utils'
+    import { WEBSLAB_DOMAIN, WEBSLAB_PROJECT, WEBSLAB_TOKEN } from '$lib/consts'
 
     const postId = new URLSearchParams(window.location.search).get('id')
     let currentPage = 0
 
     getWlDatabase().then(async (wlDatabase) => {
+      import('$lib/hero.ts')
+
       wlDatabase.addEventListener('wl-task:completed', (evt) => {
         const db = authService.getDb()
 
@@ -79,6 +84,17 @@ import EditorTemplate from '$components/admin/posts/editor/Template.astro'
         const content = document.getElementById('post-content') as HTMLTextAreaElement
         const tableName = document.getElementById('table-name')
         const pagesContainer = document.getElementById('pages-container')
+
+        // hero
+        const foo = document.getElementById('foo')
+        const heroPicker = document.getElementById('heroPicker')
+        const heroPreview = document.getElementById('hero-preview') as HTMLImageElement
+        const heroCurrent = heroPicker.dataset.current
+
+        heroPreview.src = heroCurrent
+        hero.value = heroCurrent
+        heroPicker.appendChild(foo)
+        foo.classList.remove('d-none')
 
         const jodit = joditInit(content)
 
