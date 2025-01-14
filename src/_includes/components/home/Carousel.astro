@@ -1,0 +1,75 @@
+---
+import CardCrea from '$components/home/cards/CardCrea.astro'
+import CardCema from '$components/home/cards/CardCema.astro'
+import CardLong from '$components/home/cards/CardLong.astro'
+---
+
+<div
+  style="background-color: rgba(var(--bs-primary-rgb), 0.2);"
+  class="carousel slide p-0 p-lg-4 py-3 rounded"
+  id="carouselExample">
+  <div class="carousel-indicators">
+    <button
+      style="filter: invert(1)"
+      class="active"
+      data-bs-target="#carouselExample"
+      data-bs-slide-to="0"
+      aria-current="true"
+      aria-label="Slide 1"
+      type="button"></button>
+
+    <button
+      style="filter: invert(1)"
+      data-bs-target="#carouselExample"
+      data-bs-slide-to="1"
+      aria-current="true"
+      aria-label="Slide 2"
+      type="button"></button>
+
+    <button
+      style="filter: invert(1)"
+      data-bs-target="#carouselExample"
+      data-bs-slide-to="2"
+      aria-current="true"
+      aria-label="Slide 3"
+      type="button"></button>
+  </div>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <CardCrea />
+    </div>
+
+    <div class="carousel-item">
+      <CardCema />
+    </div>
+
+    <div class="carousel-item">
+      <CardLong />
+    </div>
+  </div>
+
+  <button
+    style="filter: invert(1); display: block; position: absolute; top: 90%;"
+    class="carousel-control-prev"
+    data-bs-target="#carouselExample"
+    data-bs-slide="prev"
+    type="button">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button
+    style="filter: invert(1); display: block; position: absolute; top: 90%;"
+    class="carousel-control-next"
+    data-bs-target="#carouselExample"
+    data-bs-slide="next"
+    type="button">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<script>
+  import 'bootstrap/js/dist/carousel'
+</script>

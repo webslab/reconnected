@@ -2,7 +2,9 @@
 import Link from './Link.astro'
 
 import { Image } from 'astro:assets'
-import brand from '$images/brand-base.png'
+// import brand from '$images/brand-base.png'
+// import brand from '$images/brand-reconnected.png'
+import brand from '$images/logo-reconnected.svg'
 
 interface Props {
   loginSelector: string;
@@ -15,6 +17,12 @@ const { loginSelector } = Astro.props;
 .nav-item {
   margin: 0 0.7rem;
 }
+
+@media (prefers-color-scheme: dark) {
+  .navbar-brand {
+    filter: invert(1);
+  }
+}
 </style>
 
 <nav
@@ -22,11 +30,12 @@ const { loginSelector } = Astro.props;
   class="navbar navbar-expand-lg shadow-sm">
   <div class="container-xxl bd-gutter flex-wrap flex-lg-nowrap">
     <a
-      class="navbar-brand"
+      style="max-height: 2em; overflow: hidden;"
+      class="navbar-brand rounded"
       href="/">
       <Image
+        style="max-width: 200px; max-height: 4em; margin-top: -1.1em;"
         class="image-fluid w-100"
-        style="max-height: 2.5rem"
         src={brand}
         format={'webp'}
         widths={[200]}
@@ -73,14 +82,14 @@ const { loginSelector } = Astro.props;
           </Link>
         </li>
 
-        <li class="nav-iteam">
-          <Link
-            id="nav-modules"
-            class="nav-link disabled"
-            href="/content/modules/">
-            Modules
-          </Link>
-        </li>
+        <!-- <li class="nav-iteam"> -->
+        <!--   <Link -->
+        <!--     id="nav-modules" -->
+        <!--     class="nav-link disabled" -->
+        <!--     href="/content/modules/"> -->
+        <!--     Modules -->
+        <!--   </Link> -->
+        <!-- </li> -->
 
         <li class="nav-item dropdown ms-4 border-start border-primary border-3">
           <a
@@ -171,7 +180,7 @@ const { loginSelector } = Astro.props;
         const navLogin = document.getElementById('nav-login')
         const navAdmin = document.querySelectorAll('[data-admin]')
         const navLogout = document.getElementById('nav-logout')
-        const navModules = document.getElementById('nav-modules')
+        // const navModules = document.getElementById('nav-modules')
 
         document.addEventListener('DOMContentLoaded', async () => {
           try {
@@ -180,11 +189,11 @@ const { loginSelector } = Astro.props;
             if (authService.isAuthenticated()) {
               navLogin.classList.add('disabled')
               navLogout.classList.remove('disabled')
-              navModules.classList.remove('disabled')
+              // navModules.classList.remove('disabled')
             } else {
               navLogin.classList.remove('disabled')
               navLogout.classList.add('disabled')
-              navModules.classList.add('disabled')
+              // navModules.classList.add('disabled')
             }
 
             if (authService.isAuthenticated() && authService.isAdministrator()) {

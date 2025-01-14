@@ -1,0 +1,116 @@
+---
+import { Image } from 'astro:assets'
+
+import imageCema from '$images/studies/study-cema.jpg'
+---
+
+<h4 class="mb-4 text-center h3">
+  <u>Estudio CEMA</u>
+</h4>
+
+<div class="row">
+  <div class="col d-none d-lg-block">
+    <Image
+      loading="lazy"
+      class="img-fluid mt-4 rounded"
+      src={imageCema}
+      format={'webp'}
+      widths={[540, 720]}
+      sizes={`(max-width: 1200px) 540px, 720px`}
+      alt="using phone outdoor"/>
+  </div>
+
+  <div class="col">
+    <dl>
+      <dt class="text-primary">Participación</dt>
+      <dd>
+        <p class="ms-3">
+          <a
+            class="btn btn-outline-success fw-bold"
+            href="mailto:reconnected@uv.es?subject=Participar%20estudio%20Cema">
+            Haz click para participar
+          </a>
+        </p>
+      </dd>
+
+      <dt class="text-primary">¿En qué estado se encuentra?</dt>
+      <dd>
+        <p class="ms-md-3">
+          En proceso de reclutamiento
+        </p>
+      </dd>
+
+      <dt class="text-primary">Tipo de estudio</dt>
+      <dd>
+        <p class="ms-md-3">Evaluación</p>
+      </dd>
+
+      <dt class="text-primary">Fecha de inicio</dt>
+      <dd>
+        <p class="ms-md-3">Enero 2024</p>
+      </dd>
+
+      <dt class="text-primary">Duración</dt>
+      <dd>
+        <p class="ms-md-3">
+          15 días
+        </p>
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<dl>
+  <dt class="text-primary">Población objetivo</dt>
+  <dd>
+    <p class="ms-md-3">
+      Población migrante latinoamericana mayor de edad.
+    </p>
+  </dd>
+
+  <dt class="text-primary">Objetivos</dt>
+  <dd>
+    <ol class="">
+      <li class="">
+        Estudiar los factores de riesgo y protectores del bienestar.
+      </li>
+
+      <li class="">
+        Estudiar las variaciones <span class="fw-bold">diarias</span> de estrés percibido, estado de ánimo, psicopatología y bienestar.
+      </li>
+    </ol>
+  </dd>
+
+  <dt class="text-primary">Descripción</dt>
+  <dd>
+    <p class="ms-md-3">
+      Este estudio utiliza un método llamado EMA (ecological momentary assessment o evaluación ecológica momentánea), un diseño experimental que permite recoger información en tiempo real dentro del contexto diario y natural de cada participante, estés donde estés.
+    </p>
+
+    <p class="ms-md-3">
+      Para participar, tras completar la encuesta inicial y ser seleccionado/a para poder participar, deberás descargar una aplicación de salud mental que te enviará 5 notificaciones diarias. Cada notificación incluirá preguntas breves sobre tu bienestar, nivel de estrés, emociones, sueño o actividad física, lo que te permitirá llevar un registro continuo y personalizado de diversos aspectos de tu vida.
+    </p>
+
+    <p class="ms-md-3">
+      Es importante saber que, para acceder a este estudio, es necesario haber completado previamente una <a href="#">encuesta de cribado</a> (<span class="text-bg-warning">enlace a qualtrics</span>).
+    </p>
+  </dd>
+
+  <dt class="text-primary">Recompensa</dt>
+  <dd>
+    <p class="ms-md-3">
+      Al completar ambas encuestas, participarás en el sorteo de una tarjeta regalo de 50€.
+    </p>
+  </dd>
+
+  <dt class="text-primary">Contacto</dt>
+  <dd>
+    <p class="ms-md-3">
+      <a href="mailto:reconnected@uv.es">reconnected@uv.es</a>
+    </p>
+  </dd>
+</dl>
+
+<p class="text-center text-primary fw-bold lead">
+  #Evaluación #EMA #Online
+</p>

@@ -1,0 +1,110 @@
+---
+import { Image } from 'astro:assets'
+
+import imageLong from '$images/studies/study-long.jpg'
+---
+
+<h4 class="mb-4 text-center h3">
+  <u>Estudio Longitudinal</u>
+</h4>
+
+<div class="row">
+  <div class="col d-none d-lg-block">
+    <Image
+      loading="lazy"
+      class="img-fluid mt-4 rounded"
+      src={imageLong}
+      format={'webp'}
+      widths={[540, 720]}
+      sizes={`(max-width: 1200px) 540px, 720px`}
+      alt="girl listening music via headphones with smile"/>
+  </div>
+
+  <div class="col">
+    <dl>
+      <dt class="text-primary">Participación</dt>
+      <dd>
+        <p class="ms-3">
+          <a
+            class="btn btn-outline-success fw-bold"
+            href="mailto:reconnected@uv.es?subject=Participar%20estudio%20Long">
+            Haz click para participar
+          </a>
+        </p>
+      </dd>
+
+      <dt class="text-primary">¿En qué estado se encuentra?</dt>
+      <dd>
+        <p class="ms-md-3">
+          En proceso de diseño
+        </p>
+      </dd>
+
+      <dt class="text-primary">Tipo de estudio</dt>
+      <dd>
+        <p class="ms-md-3">Intervención</p>
+      </dd>
+
+      <dt class="text-primary">Fecha de inicio</dt>
+      <dd>
+        <p class="ms-md-3">Enero 2026</p>
+      </dd>
+
+      <dt class="text-primary">Duración</dt>
+      <dd>
+        <p class="ms-md-3">
+          6 meses
+        </p>
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<dl>
+  <dt class="text-primary">Población objetivo</dt>
+  <dd>
+    <p class="ms-md-3">
+      Población migrante latinoaméricana mayor de edad.
+    </p>
+  </dd>
+
+  <dt class="text-primary">Objetivos</dt>
+  <dd>
+    <p class="ms-md-3">
+      Probar la eficacia de una intervención digital para la promoción de la salud mental.
+    </p>
+  </dd>
+
+  <dt class="text-primary">Descripción</dt>
+  <dd>
+    <p class="ms-md-3">
+      Este estudio emplea un enfoque conocido como EMI (ecological momentary intervention o intervención ecológica momentánea), que consiste en recibir pequeñas dosis de intervención en forma de estrategias o ejercicios breves. Para participar, necesitarás primero completar una encuesta inicial y seguidamente descargar una aplicación de salud mental que te enviará una notificación diaria durante 21 días. Cada notificación contendrá diferentes ejercicios y preguntas enfocadas a fomentar tu bienestar.
+    </p>
+
+    <p class="ms-md-3">
+      Este estudio consiste en responder cuatro encuestas en distintos momentos en distintos momentos temporales, centradas en tu bienestar, sintomatología clínica (como ansiedad o depresión), estresores y estado de ánimo.
+    </p>
+
+    <p class="ms-md-3">
+      Cuando finalices el programa de 3 semanas, te volveremos a mandar la misma encuesta para evaluar sus beneficios. Posteriormente, te volveremos a enviar dos encuestas más, a los 3 y a los 6 meses (duración 15’ aprox.).
+    </p>
+  </dd>
+
+  <dt class="text-primary">Recompensa</dt>
+  <dd>
+    <p class="ms-md-3">
+      <span class="text-bg-warning">Tarjeta regalo por valor de</span> 20€.
+    </p>
+  </dd>
+
+  <dt class="text-primary">Contacto</dt>
+  <dd>
+    <p class="ms-md-3">
+      <a href="mailto:reconnected@uv.es">reconnected@uv.es</a>
+    </p>
+  </dd>
+</dl>
+
+<p class="text-center text-primary fw-bold lead">
+  #Intervención #Reconnected #Resiliencia #Online
+</p>

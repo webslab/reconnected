@@ -7,10 +7,10 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
       # prod:
-      # - ./dist/impulsa:/var/www/html/impulsa
+      # - ./dist/reconnected:/var/www/html/reconnected
       # - ./dist:/var/www/html
       # dev:
-      - ./public:/var/www/html/impulsa
+      - ./public:/var/www/html/reconnected
 
   php-fpm:
     image: webslab/filefind:latest

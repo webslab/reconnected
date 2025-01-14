@@ -1,0 +1,95 @@
+---
+import { Image } from 'astro:assets'
+
+import imageCrea from '$images/studies/study-crea.jpg'
+---
+
+<h4 class="mb-4 text-center h3">
+  <u>Estudio Co-creación</u>
+</h4>
+
+<div class="row">
+  <div class="col col-xl-5 col-xxl-4 d-none d-lg-block">
+    <Image
+      loading="lazy"
+      class="img-fluid mb-4 rounded"
+      src={imageCrea}
+      format={'webp'}
+      widths={[540, 720]}
+      sizes={`(max-width: 1200px) 540px, 720px`}
+      alt="computer tablet phone over a desk"/>
+  </div>
+
+  <div class="col">
+    <dl class="mt-lg-4">
+      <dt class="text-primary">Participación</dt>
+      <dd>
+        <p class="ms-3">
+          <a
+            class="btn btn-outline-success fw-bold"
+            href="mailto:reconnected@uv.es?subject=Participar%20estudio%20Crea">
+            Haz click para participar
+          </a>
+        </p>
+      </dd>
+
+      <dt class="text-primary">¿En qué estado se encuentra?</dt>
+      <dd>
+        <p class="ms-md-3">
+          En proceso de reclutamiento
+        </p>
+      </dd>
+
+      <dt class="text-primary">Tipo de estudio</dt>
+      <dd>
+        <p class="ms-md-3">Participativo / Co-creación</p>
+      </dd>
+
+      <dt class="text-primary">Fecha de inicio</dt>
+      <dd>
+        <p class="ms-md-3">Mayo 2024</p>
+      </dd>
+
+      <dt class="text-primary">Duración</dt>
+      <dd>
+        <p class="ms-md-3">
+          6 reuniones, cada una con una duración de 1 hora y media.
+        </p>
+      </dd>
+
+      <dt class="text-primary">Población objetivo</dt>
+      <dd>
+        <p class="ms-md-3">
+          Población migrante latinoamericana en España, así como profesionales que trabajen con este colectivo.
+        </p>
+      </dd>
+
+      <dt class="text-primary">Objetivos</dt>
+      <dd>
+        <p class="ms-md-3">
+          Garantizar que los contenidos de evaluación e intervención sean culturalmente pertinentes y estén alineados con las necesidades específicas del colectivo.
+        </p>
+      </dd>
+    </dl>
+  </div>
+
+  <dl>
+    <dt class="text-primary">Descripción</dt>
+    <dd>
+      <p class="ms-md-3">
+        Reuniones colaborativas para co-crear diferentes elementos clave del proyecto, como el diseño de la futura app Reconnected. Estas sesiones permitirán recoger las perspectivas y experiencias de la población objetivo, así como de los profesionales que trabajan con este colectivo, para asegurar que los contenidos desarrollados sean culturalmente pertinentes y relevantes.
+      </p>
+    </dd>
+
+    <dt class="text-primary">Contacto</dt>
+    <dd>
+      <p class="ms-md-3">
+        <a href="mailto:reconnected@uv.es">reconnected@uv.es</a>
+      </p>
+    </dd>
+  </dl>
+
+  <p class="text-center text-primary fw-bold lead">
+    #Evaluación #Creación #EstudioParticipativo 
+  </p>
+</div>

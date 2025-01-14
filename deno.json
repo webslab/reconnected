@@ -1,6 +1,6 @@
 {
 	"version": "0.2.8",
-	"name": "base",
+	"name": "reconnected",
 	"tasks": {
 		"dev": "astro dev",
 		"astro": "astro",
