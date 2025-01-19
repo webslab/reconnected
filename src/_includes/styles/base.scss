@@ -12,6 +12,8 @@
 
 $primary: #450053;
 $secondary: #00a99d;
+$pink: #ed1e79;
+
 $font-size-base: 1.25rem;
 $font-family-sans-serif:
   "Gilroy",
@@ -35,8 +37,19 @@ $font-family-sans-serif:
   --transition-duration: 2s;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bs-primary: #963caa;
+    --bs-primary-rgb: 150, 60, 170;
+  }
+}
+
 :not(:defined) {
   visibility: hidden;
+}
+
+.text-pink {
+  color: $pink;
 }
 
 jodit:has(.article-video) {
