@@ -3,135 +3,45 @@ import { Image } from 'astro:assets'
 
 import BaseLayout from '$layouts/Base.astro'
 
-import logoP from '$images/logo-reconnected.png'
+import logoP from '$images/logo-base-1080_1080.png'
 import logoC from '$images/logo-conselleria-rgb_rojo_cast.png'
-
-import Carousel from '$components/home/Carousel.astro'
-
-import StudyLong from '$components/home/studies/StudyLong.astro'
-import StudyCema from '$components/home/studies/StudyCema.astro'
-import StudyCrea from '$components/home/studies/StudyCrea.astro'
 ---
-
-<style>
-@media (prefers-color-scheme: dark) {
-  #index-logo-reconnected {
-    background-color: rgba(var(--bs-white-rgb), .3);
-  }
-}
-</style>
 
 <BaseLayout
   auth={false}
   admin={false}
   title="Home"
   description="Home page">
-  <section class="px-0 px-md-4 my-4 py-4 mx-auto text-center">
-    <h1>Te damos la bienvenida a</h1>
+  <h1>Welcome to Base</h1>
 
-    <div
-      id="index-logo-reconnected"
-      class="col col-md-10 mx-auto mb-4 rounded">
-      <Image
-        class="img-fluid"
-        src={logoP}
-        format={'webp'}
-        widths={[240, 540, 720, logoP.width]}
-        sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${logoP.width}px`}
-        alt="Project Logo"/>
+  <div class="col col-md-6 mx-auto">
+    <Image
+      class="img-fluid ratio ratio-1x1"
+      src={logoP}
+      format={'webp'}
+      widths={[240, 540, 720, logoP.width]}
+      sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${logoP.width}px`}
+      alt="Project Logo"/>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6 col-md-3 col-lg-3 mx-auto">
+        <Image
+          class="img-fluid ratio ratio-16x9"
+          src={logoC}
+          format={'webp'}
+          widths={[240, 540, logoC.width]}
+          sizes={`(max-width: 360px) 240px, (max-width: 1600px) 540px, ${logoC.width}px`}
+          alt="Project Logo"/>
+      </div>
+
+      <div class="col-6 col-md-3 col-lg-3 mx-auto bg-warning">
+      </div>
+
+      <div class="col mx-auto bg-primary">
+        f
+      </div>
     </div>
-
-    <div>
-      <h2 class="mb-4 h4 text-primary">
-        Un proyecto para impulsar la salud mental y el bienestar a través de intervenciones digitales
-      </h2>
-
-      <p class="px-4">
-        Financiado por la Unión Europea en virtud del acuerdo de subvención nº 101081020963.
-      </p>
-    </div>
-  </section>
-
-  <section class="px-0 px-md-4 my-4 py-4 mx-auto">
-    <p class="lead">
-      <span class="text-primary">RECONNECTED</span> es un proyecto de investigación europeo que tiene como fin dar respuesta a múltiples acontecimientos mundiales (i.e., guerras, cambio climático, cambios demográficos...) que repercuten en la vida cotidiana y el bienestar de las personas vulnerables en Europa.
-    </p>
-
-    <p class="lead">Sus objetivos son:</p>
-
-    <ul class="list-group col col-lg-8 mx-auto my-4">
-      <li class="list-group-item d-flex p-4">
-        <span class="d-block display-4 pe-4">1</span>
-
-        <p>
-          Evaluar y comprender mejor el <span class="text-pink">papel de los factores de riesgo y de protección</span> que interactúan a nivel individual, social y medioambiental.
-        </p>
-      </li>
-
-      <li class="list-group-item p-4">
-        <div class="d-flex">
-          <span class="d-block display-4 pe-4">2</span>
-
-          <p>
-            Diseñar y validar una <span class="text-pink">intervención digital</span> que fomente:
-          </p>
-        </div>
-
-
-        <ul class="list-group list-group-flush col col-lg-8 mx-auto">
-          <li class="list-group-item">Alfabetización en salud mental</li>
-
-          <li class="list-group-item">Participación social</li>
-
-          <li class="list-group-item">Resilencia</li>
-        </ul>
-      </li>
-    </ul>
-
-    <p class="lead">
-      Para ello, se va a investigar sobre diversas poblaciones vulnerables (p. ej., adolescentes, población con ingresos socioeconómicos bajos o migrantes). En particular, el grupo de investigación I-PSI-TEC de la Universitat de València trabajará con la población migrante latinoamericana en España.
-    </p>
-
-    <p class="lead">
-      Para lograr estos objetivos, el proyecto <span class="text-primary">RECONNECTED</span> está llevando a cabo diferentes estudios de investigación.
-    </p>
-  </section>
-
-  <hr class="my-4" />
-
-  <section class="px-0 px-md-4 my-4 py-4 mx-auto">
-    <h3 class="text-center text-primary">
-      ¿Qué estudios se están llevando a cabo?
-    </h3>
-
-    <p class="py-4 lead">
-      Se están desarrollando tanto estudios de recopilación de datos (evaluación y co-creación) como investigaciones orientadas a la implementación de estrategias psicológicas (intervención).
-    </p>
-
-    <Carousel />
-  </section>
-
-  <hr class="my-4" />
-
-  <section
-    id="section-crea"
-    class="px-0 px-md-4 my-4 py-4 mx-auto">
-    <StudyCrea />
-  </section>
-
-  <hr class="border border-primary w-75 mx-auto" />
-
-  <section
-    id="section-cema"
-    class="px-0 px-md-4 my-4 py-4 mx-auto">
-    <StudyCema />
-  </section>
-
-  <hr class="border border-primary w-75 mx-auto" />
-
-  <section
-    id="section-long"
-    class="px-0 px-md-4 my-4 py-4 mx-auto">
-    <StudyLong />
-  </section>
+  </div>
 </BaseLayout>

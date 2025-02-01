@@ -10,10 +10,8 @@
   src: URL("/fonts/Gilroy-Bold.ttf") format("truetype");
 }
 
-$primary: #450053;
-$secondary: #00a99d;
-$pink: #ed1e79;
-
+$primary: #613583;
+$secondary: teal;
 $font-size-base: 1.25rem;
 $font-family-sans-serif:
   "Gilroy",
@@ -37,19 +35,8 @@ $font-family-sans-serif:
   --transition-duration: 2s;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bs-primary: #963caa;
-    --bs-primary-rgb: 150, 60, 170;
-  }
-}
-
 :not(:defined) {
   visibility: hidden;
-}
-
-.text-pink {
-  color: $pink;
 }
 
 // just inside editor
@@ -136,11 +123,6 @@ main {
 
 .btn-primary {
   background-color: var(--bs-primary);
-  border-color: var(--bs-primary);
-}
-
-.btn-outline-primary {
-  color: var(--bs-primary);
   border-color: var(--bs-primary);
 }
 

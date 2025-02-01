@@ -50,7 +50,6 @@ export function joditInit(selector: HTMLElement): Jodit {
 					"text-blue": "Blue",
 					"text-danger": "Danger",
 					"text-warning": "Warning",
-					"text-pink": "Pink",
 				},
 			},
 		},
