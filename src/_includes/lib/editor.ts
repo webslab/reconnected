@@ -35,7 +35,7 @@ export function joditInit(selector: HTMLElement): Jodit {
 			},
 		},
 
-		// height: 550,
+		height: 550,
 		minHeight: 400,
 		// toolbarAdaptive: false,
 
@@ -51,6 +51,12 @@ export function joditInit(selector: HTMLElement): Jodit {
 					"text-danger": "Danger",
 					"text-warning": "Warning",
 					"text-pink": "Pink",
+					"lab-green": "Lab",
+					"lab-green-invert": "Lab",
+					"lab-blue": "Lab",
+					"lab-blue-invert": "Lab",
+					"lab-purple": "Lab",
+					"lab-purple-invert": "Lab",
 				},
 			},
 		},
