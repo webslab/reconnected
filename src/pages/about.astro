@@ -7,10 +7,6 @@ import BaseLayout from '$layouts/Base.astro'
 import teamMain from '$images/about/about_team-group_cartoon.png'
 import teamIP from '$images/about/team-rosa.png'
 
-import logoVU from '../_includes/images/unis/logo-uni-vrije.png'
-import logoTU from '../_includes/images/unis/logo-uni-turku.png'
-import logoBE from '../_includes/images/unis/logo-uni-bern.png'
-
 const unis = await getCollection('unis')
 
 const groupOne = await getCollection('members', ({ data }) => {
@@ -46,10 +42,9 @@ img:hover:not(.uni-img) {
 <BaseLayout
   auth={false}
   admin={false}
-  title="About us"
+  title="¿Quiénes somos?"
   description="About the project and its memembers">
   <section class="px-0 px-md-4 py-4 mx-auto text-center">
-    <h1>¿Quiénes somos?</h1>
 
     <div class="row justify-content-center">
       <div class="col col-md-9">
@@ -72,7 +67,6 @@ img:hover:not(.uni-img) {
 
   <hr class="my-4" />
 
-  <!-- <section class="container my-4 p-md-4 mx-auto"> -->
   <section class="px-0 px-md-4 py-4 mx-auto">
     <h2 class="h3 text-center">Investigadora Principal:</h2>
 
