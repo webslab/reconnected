@@ -1,5 +1,5 @@
 {
-	"name": "reconnected",
+	"name": "base",
 	"version": "0.5.2",
 	"tasks": {
 		"dev": "astro dev",
