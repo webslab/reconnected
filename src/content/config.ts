@@ -17,17 +17,6 @@ const membersCollection = defineCollection({
 		}),
 });
 
-const universitiesCollection = defineCollection({
-	type: "data",
-	schema: ({ image }: Image) =>
-		z.object({
-			id: z.number(),
-			name: z.string(),
-			logo: image(),
-		}),
-});
-
 export const collections = {
 	"members": membersCollection,
-	"unis": universitiesCollection,
 };
