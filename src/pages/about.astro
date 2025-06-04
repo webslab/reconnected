@@ -4,23 +4,25 @@ import { Image } from 'astro:assets'
 
 import BaseLayout from '$layouts/Base.astro'
 
-import teamMain from '$images/about/about_team-group_cartoon.png'
+// import teamMain from '$images/about/about_team-group_cartoon.png'
 import teamIP from '$images/about/team-rosa.png'
 
 const unis = await getCollection('unis')
 
 const groupOne = await getCollection('members', ({ data }) => {
-  return data.group === 1;
+  return data.group === 1 && data.id !== 10;
 })
 
-const groupTwo = await getCollection('members', ({ data }) => {
-  return data.group === 2;
-})
+// const groupTwo = await getCollection('members', ({ data }) => {
+//   return data.group === 2;
+// })
 ---
 
 <style>
 .uni-img {
-  filter: grayscale(100%) contrast(200%);
+  max-height: 120px;
+  object-fit: contain;
+  /* filter: grayscale(100%) contrast(200%); */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,8 +46,8 @@ img:hover:not(.uni-img) {
   admin={false}
   title="¿Quiénes somos?"
   description="About the project and its memembers">
+<!--
   <section class="px-0 px-md-4 py-4 mx-auto text-center">
-
     <div class="row justify-content-center">
       <div class="col col-md-9">
         <p class="lead">
@@ -66,13 +68,13 @@ img:hover:not(.uni-img) {
   </section>
 
   <hr class="my-4" />
+-->
 
-  <!--
   <section class="px-0 px-md-4 py-4 mx-auto">
-    <h2 class="h3 text-center">Investigadora Principal:</h2>
+    <h2 class="h3 text-center text-secondary">Investigadora Principal:</h2>
 
-    <div class="row mt-4">
-      <div class="col-sm-12 col-lg-4 text-center">
+    <div class="row mt-4 justify-content-center align-items-center">
+      <div class="col-12 col-lg-4 text-center">
         <Image
           class="border border-2 rounded-circle"
           src={teamIP}
@@ -84,9 +86,9 @@ img:hover:not(.uni-img) {
         <h3 class="h4 text-primary">Rosa Baños</h3>
       </div>
 
-      <div class="col ms-3 d-flex">
+      <div class="col-12 col-lg-6 ms-3 d-flex">
         <div class="my-auto">
-          <p class="h5"><u>Catedrática de Psicopatología</u></p>
+          <p class="h5 text-center"><strong>Catedrática de Psicopatología</strong></p>
 
           <p>
             Departamento de Personalidad, Evaluación y Tratamientos Psicológicos (UVEG). Instituto Polibienestar. Jefa del grupo B06/03/0052 Centro de Investigación Biomédica en Red Fisiopatología de la Obesidad y Nutrición (CIBERobn, Instituto Carlos III).
@@ -95,18 +97,18 @@ img:hover:not(.uni-img) {
       </div>
     </div>
   </section>
-  <hr class="w-75 mx-auto my-4 border border-primary" />
-  -->
+
+  <hr class="w-75 mx-auto mt-0 mb-4 border border-primary" />
 
   <!-- <section class="container my-4 p-md-4 mx-auto"> -->
   <section class="px-0 px-md-4 py-4 mx-auto">
     <!-- <h2 class="h4">Group One:</h2> -->
 
-    <div class="row gap-3 justify-content-center">
+    <div class="row justify-content-center">
       {
       groupOne.map((member) => (
       <div
-        style="position: relative; margin-top: 100px;"
+        style="position: relative; margin-top: 120px;"
         class="card col-12 col-md-5 col-xl-3">
         <Image
           style="position: absolute; top: -110px; left: 50%; transform: translateX(-50%); border: 2px solid transparent;"
@@ -144,7 +146,7 @@ img:hover:not(.uni-img) {
     <div class="row gap-3 justify-content-center">
       { unis.map((uni) => (
       <div class="card col-5 col-md-3">
-        <div class="p-1 p-md-3">
+        <div class="p-1 p-md-3 my-auto">
           <Image
             class="w-100 h-100 uni-img"
             src={uni.data.logo}
