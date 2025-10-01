@@ -3,6 +3,9 @@ import { PaperService } from "@webslab/shared/services";
 
 import { authService } from "$lib/services/auth.ts";
 import type { Module } from "$lib/types.ts";
+import type { WlQuestion } from "@webslab/shared/components";
+
+type Answer = { question: string; content: string; userTouched?: boolean };
 
 const slug = new URLSearchParams(location.search).get("slug");
 const article = document.querySelector("#article");
@@ -10,12 +13,14 @@ const article = document.querySelector("#article");
 export default function Pagination() {
   const [page, setPage] = createSignal(1);
   const [pages, setPages] = createSignal([""]);
+  const [answers, setAnswers] = createSignal<Answer[]>([]);
   const [paperSvc, setPaperSvc] = createSignal<PaperService>();
 
   createEffect(() => {
     if (!article) return;
 
     article.innerHTML = pages()[page() - 1];
+    currentQuestions();
   });
 
   onMount(async () => {
@@ -31,9 +36,64 @@ export default function Pagination() {
     setPaperSvc(new PaperService(module_, authService));
   });
 
+  function currentQuestions() {
+    const wlQuestions = article!.querySelectorAll("wl-question");
+    if (wlQuestions.length === 0) return;
+
+    // look for existing answers
+    wlQuestions.forEach((question) => {
+      const qid = question.getAttribute("qid")!;
+      const existing = answers().find((a) => a.question === qid);
+
+      if (existing) {
+        const input = question.children[1] as HTMLInputElement;
+        input.value = existing.content;
+
+        if (existing.userTouched) {
+          question.setAttribute("userTouched", "");
+        }
+      }
+    });
+  }
+
+  function findAnswers(): boolean {
+    const wlQuestions = article!.querySelectorAll("wl-question");
+
+    if (wlQuestions.length === 0) return true;
+
+    // Use the new simplified API from @webslab/shared v0.5.0
+    const allValid = Array.from(wlQuestions).every((question) =>
+      (question as WlQuestion).isValid(),
+    );
+
+    if (!allValid) {
+      alert("Please fill all the questions");
+      return false;
+    }
+
+    // Update answers for each question
+    wlQuestions.forEach((question) => {
+      const qid = question.getAttribute("qid")!;
+      const input = question.children[1] as HTMLInputElement;
+      const userTouched = question.hasAttribute("userTouched");
+
+      setAnswers((prev) => {
+        const filtered = prev.filter((answer) => answer.question !== qid);
+
+        return [
+          ...filtered,
+          { question: qid, content: input.value, userTouched },
+        ];
+      });
+    });
+
+    return true;
+  }
+
   const prev = () => {
     if (page() === 1) return;
     if (paperSvc()) paperSvc()!.prev(page());
+    if (!findAnswers()) return;
 
     setPage(page() - 1);
     location.hash = `#post-title`;
@@ -42,6 +102,7 @@ export default function Pagination() {
   const next = () => {
     if (page() === pages().length) return;
     if (paperSvc()) paperSvc()!.next(page());
+    if (!findAnswers()) return;
 
     setPage(page() + 1);
     // location.hash = `#post-title`;
@@ -50,8 +111,10 @@ export default function Pagination() {
   };
 
   const submit = async () => {
+    if (!findAnswers()) return;
+
     try {
-      await paperSvc()!.submit(page());
+      await paperSvc()!.submit(page(), answers());
     } catch (error) {
       console.error(error);
     }
